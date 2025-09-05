@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es" data-theme="auto">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="Videoteca — Landing tipo YouTube con HTML/CSS/JS puro, responsiva y accesible." />
+  <title>Videoteca — Landing estilo YouTube</title>
+
+  <!-- Favicon SVG puro (sin assets externos) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'>
+      <rect width='64' height='64' rx='12' fill='%23e11d48'/>
+      <polygon points='26,20 46,32 26,44' fill='white'/>
+    </svg>">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Enlace de salto para accesibilidad -->
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Header -->
+  <header class="site-header" role="banner">
+    <button class="icon-btn hide-desktop" id="menuToggle" aria-label="Abrir menú" aria-haspopup="true" aria-controls="sidebar" aria-expanded="false">
+      <!-- icono hamburguesa -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+    </button>
+
+    <a class="brand" href="#" aria-label="Videoteca, ir al inicio">
+      <span class="brand-logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64"><rect width="64" height="64" rx="12"/><polygon points="26,20 46,32 26,44" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-name">Videoteca</span>
+    </a>
+
+    <!-- Buscador -->
+    <form id="searchForm" class="search" role="search" aria-label="Buscar videos">
+      <label class="sr-only" for="q">Buscar</label>
+      <input id="q" name="q" type="search" placeholder="Buscar" autocomplete="off" spellcheck="false" aria-label="Buscar" />
+      <button class="icon-btn" type="submit" aria-label="Buscar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <button class="icon-btn" type="button" id="voiceBtn" aria-label="Búsqueda por voz (demo)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 1 3 3v6a3 3 0 1 1-6 0V6a3 3 0 0 1 3-3z" fill="currentColor"/><path d="M5 11a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 18v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+
+    <!-- Acciones usuario -->
+    <nav class="user-actions" aria-label="Acciones">
+      <button class="icon-btn" id="themeToggle" aria-label="Cambiar tema">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+      <button class="pill-btn" id="signInBtn">Acceder</button>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar" aria-label="Categorías de navegación">
+      <nav class="nav-sections">
+        <a href="#" class="nav-item active"><span class="icon">🏠</span>Inicio</a>
+        <a href="#" class="nav-item"><span class="icon">🔥</span>Tendencias</a>
+        <a href="#" class="nav-item"><span class="icon">🎵</span>Música</a>
+        <a href="#" class="nav-item"><span class="icon">🎮</span>Gaming</a>
+        <a href="#" class="nav-item"><span class="icon">🧠</span>Aprendizaje</a>
+        <a href="#" class="nav-item"><span class="icon">📺</span>En vivo</a>
+        <hr />
+        <a href="#" class="nav-item"><span class="icon">⌛</span>Historial</a>
+        <a href="#" class="nav-item"><span class="icon">⏱️</span>Ver más tarde</a>
+        <a href="#" class="nav-item"><span class="icon">👍</span>Videos que me gustan</a>
+      </nav>
+      <footer class="sidebar-foot">
+        <small>© 2025 Videoteca</small>
+      </footer>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main id="contenido" class="content" role="main">
+      <!-- Chips de filtros -->
+      <div class="chips" role="tablist" aria-label="Filtros de contenido">
+        <button class="chip active" role="tab" aria-selected="true">Todo</button>
+        <button class="chip" role="tab">Música</button>
+        <button class="chip" role="tab">Programación</button>
+        <button class="chip" role="tab">Noticias</button>
+        <button class="chip" role="tab">JW</button>
+        <button class="chip" role="tab">Ciencia</button>
+        <button class="chip" role="tab">Deportes</button>
+        <button class="chip" role="tab">Viajes</button>
+        <button class="chip" role="tab">Comedia</button>
+        <button class="chip" role="tab">Documentales</button>
+      </div>
+
+      <!-- Grid de videos -->
+      <section class="video-grid" aria-label="Listados de videos">
+        <!-- Cada card es accesible y clicable completa -->
+        <!-- Card 1 -->
+        <article class="video-card">
+          <a href="#" class="thumb" aria-label="Reproducir: Aprende HTML en 10 minutos">
+            <div class="thumb-img" data-thumb="1" aria-hidden="true"></div>
+            <span class="badge-duration">10:21</span>
+          </a>
+          <div class="meta">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="text">
+              <h3 class="title"><a href="#">Aprende HTML en 10 minutos</a></h3>
+              <div class="byline">
+                <a href="#" class="channel">CodeRápido</a>
+                <span class="sep">•</span>
+                <span>1.2 M vistas</span>
+                <span class="sep">•</span>
+                <time datetime="2025-07-02">hace 2 meses</time>
+              </div>
+            </div>
+            <button class="icon-btn more-btn" aria-label="Más opciones">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="video-card">
+          <a href="#" class="thumb" aria-label="Reproducir: Rutina de ejercicio sin equipo">
+            <div class="thumb-img" data-thumb="2" aria-hidden="true"></div>
+            <span class="badge-duration">8:05</span>
+          </a>
+          <div class="meta">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="text">
+              <h3 class="title"><a href="#">Rutina de ejercicio sin equipo</a></h3>
+              <div class="byline">
+                <a href="#" class="channel">Salud360</a>
+                <span class="sep">•</span>
+                <span>245 K vistas</span>
+                <span class="sep">•</span>
+                <time datetime="2025-08-12">hace 3 semanas</time>
+              </div>
+            </div>
+            <button class="icon-btn more-btn" aria-label="Más opciones">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="video-card">
+          <a href="#" class="thumb" aria-label="Reproducir: Consejos para estudio efectivo">
+            <div class="thumb-img" data-thumb="3" aria-hidden="true"></div>
+            <span class="badge-duration">12:44</span>
+          </a>
+          <div class="meta">
+            <div class="avatar" aria-hidden="true"></div>
+            <div class="text">
+              <h3 class="title"><a href="#">Consejos para estudio efectivo</a></h3>
+              <div class="byline">
+                <a href="#" class="channel">Aprende+ </a>
+                <span class="sep">•</span>
+                <span>98 K vistas</span>
+                <span class="sep">•</span>
+                <time datetime="2025-06-20">hace 2 meses</time>
+              </div>
+            </div>
+            <button class="icon-btn more-btn" aria-label="Más opciones">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- MÁS CARDS (mantenemos 12 para scroll y responsive) -->
+        <article class="video-card"><a class="thumb" href="#" aria-label="Reproducir: Cocina fácil para todos"><div class="thumb-img" data-thumb="4"></div><span class="badge-duration">14:03</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Cocina fácil para todos</a></h3><div class="byline"><a href="#" class="channel">Sazón</a><span class="sep">•</span><span>520 K vistas</span><span class="sep">•</span><time datetime="2025-08-30">hace 5 días</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#" aria-label="Reproducir: Viaja con poco presupuesto"><div class="thumb-img" data-thumb="5"></div><span class="badge-duration">9:47</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Viaja con poco presupuesto</a></h3><div class="byline"><a href="#" class="channel">Mochilero</a><span class="sep">•</span><span>1.1 M vistas</span><span class="sep">•</span><time datetime="2025-07-28">hace 5 semanas</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#" aria-label="Reproducir: Matemáticas sin miedo"><div class="thumb-img" data-thumb="6"></div><span class="badge-duration">6:59</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Matemáticas sin miedo</a></h3><div class="byline"><a href="#" class="channel">ProfeX</a><span class="sep">•</span><span>312 K vistas</span><span class="sep">•</span><time datetime="2025-03-15">hace 5 meses</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#" aria-label="Reproducir: Tutorial CSS Grid"><div class="thumb-img" data-thumb="7"></div><span class="badge-duration">11:12</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Tutorial CSS Grid</a></h3><div class="byline"><a href="#" class="channel">FrontTips</a><span class="sep">•</span><span>880 K vistas</span><span class="sep">•</span><time datetime="2025-01-22">hace 7 meses</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#" aria-label="Reproducir: Aprende JavaScript moderno"><div class="thumb-img" data-thumb="8"></div><span class="badge-duration">15:41</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Aprende JavaScript moderno</a></h3><div class="byline"><a href="#" class="channel">JS Hoy</a><span class="sep">•</span><span>2.3 M vistas</span><span class="sep">•</span><time datetime="2024-11-18">hace 10 meses</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#" aria-label="Reproducir: Productividad sin estrés"><div class="thumb-img" data-thumb="9"></div><span class="badge-duration">7:22</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Productividad sin estrés</a></h3><div class="byline"><a href="#" class="channel">Focus+</a><span class="sep">•</span><span>190 K vistas</span><span class="sep">•</span><time datetime="2025-04-10">hace 4 meses</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#"><div class="thumb-img" data-thumb="10"></div><span class="badge-duration">5:33</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Introducción a TypeScript</a></h3><div class="byline"><a href="#" class="channel">TS Pro</a><span class="sep">•</span><span>75 K vistas</span><span class="sep">•</span><time datetime="2025-05-01">hace 4 meses</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#"><div class="thumb-img" data-thumb="11"></div><span class="badge-duration">19:20</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Fotografía con celular</a></h3><div class="byline"><a href="#" class="channel">FotoSmart</a><span class="sep">•</span><span>410 K vistas</span><span class="sep">•</span><time datetime="2025-07-10">hace 8 semanas</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+        <article class="video-card"><a class="thumb" href="#"><div class="thumb-img" data-thumb="12"></div><span class="badge-duration">3:02</span></a><div class="meta"><div class="avatar"></div><div class="text"><h3 class="title"><a href="#">Tips de estudio bíblico</a></h3><div class="byline"><a href="#" class="channel">Lectura Viva</a><span class="sep">•</span><span>60 K vistas</span><span class="sep">•</span><time datetime="2025-08-25">hace 10 días</time></div></div><button class="icon-btn more-btn" aria-label="Más opciones"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="12" r="2"/></svg></button></div></article>
+      </section>
+    </main>
+  </div>
+
+  <!-- Footer del sitio -->
+  <footer class="site-foot" role="contentinfo">
+    <nav aria-label="Enlaces legales">
+      <a href="#">Información</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Términos</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </footer>
+
+  <!-- JS principal -->
+  <script src="app.js" defer></script>
+</body>
+</html>
